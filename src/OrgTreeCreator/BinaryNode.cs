@@ -2,7 +2,7 @@ namespace OrgTreeCreator;
 
 public class BinaryNode<T>
 {
-    private T Value { get; set; }
+    public T Value { get; }
     public BinaryNode<T>? LeftChild { get; private set; }
     public BinaryNode<T>? RightChild { get; private set; }
 
@@ -25,6 +25,18 @@ public class BinaryNode<T>
 
     public override string ToString()
     {
-        return $"{Value}: {LeftChild} {RightChild}";
+        if (LeftChild != null && RightChild != null)
+        {
+            return $"{Value}: {LeftChild.Value} {RightChild.Value}";
+        }
+        if (LeftChild != null)
+        {
+            return $"{Value}: {LeftChild.Value} null";
+        }
+        if (RightChild != null)
+        {
+            return $"{Value}: null {RightChild.Value}";
+        }
+        return $"{Value}: null null";
     }
 }
