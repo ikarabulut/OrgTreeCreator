@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Running dotnet format"
+dotnet format
+git add .
