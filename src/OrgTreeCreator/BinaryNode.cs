@@ -25,18 +25,11 @@ public class BinaryNode<T>
 
     public override string ToString()
     {
-        if (LeftChild != null && RightChild != null)
-        {
-            return $"{Value}: {LeftChild.Value} {RightChild.Value}";
-        }
-        if (LeftChild != null)
-        {
-            return $"{Value}: {LeftChild.Value} null";
-        }
-        if (RightChild != null)
-        {
-            return $"{Value}: null {RightChild.Value}";
-        }
-        return $"{Value}: null null";
+        return "";
+    }
+
+    public string ToString(string spaces)
+    {
+        return "";
     }
 }
