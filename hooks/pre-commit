@@ -1,5 +1,12 @@
 #!/bin/sh
 
+dotnet test
+
+if [ $? -ne 0 ]; then
+echo "Tests must pass before commit!"
+exit 1
+fi
+
 echo "Running dotnet format"
 dotnet format
 git add .
