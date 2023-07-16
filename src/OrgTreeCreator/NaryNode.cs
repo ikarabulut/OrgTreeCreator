@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace OrgTreeCreator;
 
 public class NaryNode<T>
@@ -18,12 +20,16 @@ public class NaryNode<T>
 
     public override string ToString()
     {
-        var nodeFamilyString = $"{Value}: ";
+        return ToString("");
+    }
+
+    public string ToString(string spaces)
+    {
+        var sb = new StringBuilder($"{spaces}{Value}:\n");
         foreach (NaryNode<T> child in Children)
         {
-            nodeFamilyString += $"{child.Value} ";
+            sb.Append(child.ToString(spaces + "  "));
         }
-
-        return nodeFamilyString;
+        return sb.ToString();
     }
 }
