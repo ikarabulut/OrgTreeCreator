@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace OrgTreeCreator;
 
 public class BinaryNode<T>
@@ -25,11 +27,32 @@ public class BinaryNode<T>
 
     public override string ToString()
     {
-        return "";
+        return ToString("");
     }
 
     public string ToString(string spaces)
     {
-        return "";
+        var sb = new StringBuilder($"{spaces}{Value}:\n");
+        if (LeftChild != null || RightChild != null)
+        {
+            if (LeftChild == null)
+            {
+                sb.Append($"{spaces + "  "}None\n");
+            }
+            else
+            {
+                sb.Append(LeftChild.ToString(spaces + "  "));
+            }
+
+            if (RightChild == null)
+            {
+                sb.Append($"{spaces + "  "}None\n");
+            }
+            else
+            {
+                sb.Append(RightChild.ToString(spaces + "  "));
+            }
+        }
+        return sb.ToString();
     }
 }
